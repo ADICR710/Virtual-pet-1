@@ -3,8 +3,8 @@ var dog, happydDog, database, foodStock, foodS;
 
 function preload() {
   //load images here
-  dogimg = loadImage("images/dogImg.png");
-  dogimg2 = loadImage("images/dogImg1.png");
+  dogimg = loadImage("Dog.png");
+  dogimg2 = loadImage("happydog.png");
 }
 
 function setup() {
@@ -13,7 +13,7 @@ function setup() {
   foodStock = database.ref("Food");
   foodStock.on("value", readStock);
   dog = createSprite(250, 250, 10, 10);
-  dog.addImage(dogimg);
+  dog.addImage(dogimg2);
   dog.scale = 0.2;
 }
 food;
@@ -24,7 +24,7 @@ function draw() {
   //add styles here
   if (keyWentDown(UP_ARROW)) {
     writeStock(foodS);
-    dog.addImage(dogimg2);
+    dog.addImage(dogimg);
   }
 
   drawSprites();
@@ -54,5 +54,4 @@ function writeStock(x) {
     Food: x,
   });
 }
-
 
